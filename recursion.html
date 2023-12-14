@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <button onclick="clickHitung()">Try </button>
+    <script> 
+    function hitungFaktorial(n){
+        if (n === 0 || n === 1){
+            return 1;    
+        } else {
+            return n * hitungFaktorial(n-1);
+        }
+    }
+
+    const clickHitung = () =>{          //ini dipakai untuk ngejalanin function di button 
+        let data = parseInt(prompt("masukin angkanya sini : "))
+        let result = hitungFaktorial(data)
+        alert(`Hasil hitung faktorial${result}`)
+    }
+
+    </script>
+    
+</body>
+</html>

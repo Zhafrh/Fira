@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <title>Document</title>
+
+    <style>
+
+    </style>
+</head>
+<body>
+    <div>
+        <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
+            Button
+          </button>
+
+        <button onclick="fetchApi()">fetch</button>
+
+
+        <ul id="list" class="grid grid-cols-3 gap-3"></ul>
+    </div>
+
+    <script>
+        function fetchApi() {
+            const list = document.getElementById('list')
+            list.innerHTML = ''
+
+            fetch('https://jsonplaceholder.typicode.com/todos')
+                .then((data) => data.json())
+                .then((data) => {
+                    data.sort((a, b) => b.id - a.id).forEach(element => //ini sorting dari nilai terbesar
+                    {
+                        list.innerHTML += `
+                        <div class="max-w-sm rounded shadow-lg">
+                        <div class="px-6 py-4">
+                            <div class="font-bold text-xl mb-2">${element.id}</div>
+                            <p class="text-gray-700 text-base">
+                                ${element.title}
+                            </p>
+                        </div>
+                        <div class="px-6 pt-4 pb-2">
+                            <span class="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2">${element.completed ? "Completed" : "Not Completed"}</span>
+                        </div>
+                        </div>
+                        `
+                    });
+                })
+
+
+        }
+
+        fetchApi()
+    </script>
+</body>
+</html>

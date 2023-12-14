@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <h2>Tabungan Calculator</h2>
+  
+    <label for="initialSavings">Jumlah Tabungan Awal:</label>
+    <input type="number" id="initialSavings" placeholder="Masukkan jumlah tabungan awal">
+  
+    <br> 
+    <label for="annualInterestRate">Tingkat Bunga Tahunan (%):</label>
+    <input type="number" id="annualInterestRate" placeholder="Masukkan tingkat bunga tahunan">
+    <br>
+
+    <label for="savingPeriod">Periode Tabungan (Bulan):</label>
+    <input type="number" id="savingPeriod" placeholder="Masukkan periode tabungan dalam bulan">
+    <br>    
+    <button onclick="calculateSavings()">Hitung Tabungan</button>
+  
+    <h3>Hasil:</h3>
+    <p id="result">Total tabungan akhir:</p>
+  
+    <script>
+      function calculateSavings() {
+        // ambil nilai dari input
+        var initialSavings = parseFloat(document.getElementById('initialSavings').value);
+        var annualInterestRate = parseFloat(document.getElementById('annualInterestRate').value);
+        var savingPeriod = parseInt(document.getElementById('savingPeriod').value);
+  
+        // hitung total tabungan akhir
+        var totalSavings = initialSavings * Math.pow(1 + (annualInterestRate / 100 / 12), savingPeriod);
+  
+        // Menampilkan hasil
+        document.getElementById('result').innerText = 'Total tabungan akhir: ' + totalSavings.toFixed(2);
+      }
+    </script>
+  
+  </body>
+  </html>
+</html>
