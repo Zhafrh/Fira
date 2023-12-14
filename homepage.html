@@ -8,10 +8,11 @@
 <body>
     <button onclick="switchCase()">Try </button>
 
+
     <script> 
       /*  const switchCase = () =>{
-            let data = prompt("masukkan data ")
-            switch(data){
+            let data = prompt("masukkan data ")  
+            switch(data){                       //kalo ini kena case sensitive
                 case "senin":
                     alert ("meeting")
                 default: 
@@ -20,15 +21,15 @@
         } */ 
    /*     const switchCase = () =>{
             let data = prompt("masukkan data ")
-            switch(data.toLowerCase()){
-                case "senin":
+            switch(data.toLowerCase()){     //toLowerCase() untuk generate biar ga kena case sensitive  
+                case "senin":               // jadi kalo input sEnIn juga bakal kebaca "senin" 
                     alert ("meeting")
                     break
                 default: 
                     alert ("libur")}}
                     */ 
         const switchCase = () =>{
-            let data = prompt("masukkan minggu ")
+            let data = prompt("masukkan minggu (hanya dalam angka) ")
             switch(data){
                 case "1":
                     alert ("PM")
@@ -44,6 +45,7 @@
                     break
                 default: 
                     alert ("Belum ada jadwal")}}
+        
     </script> 
 </body>
 </html>
